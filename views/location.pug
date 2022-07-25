@@ -9,7 +9,7 @@ html(lang="en")
         link(rel='stylesheet' href='/css/basic.css')
         link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
         script(src='https://unpkg.com/axios/dist/axios.min.js')
-        title Users
+        title Location
     body 
         include includes/header.pug
         .ui.bottom.attached.segment
@@ -19,76 +19,60 @@ html(lang="en")
                     .container(ng-app='myApp', ng-controller='namesCtrl').crud-table
                         .clearfix
                             .form-inline.pull-left
-                                button.btn.btn-success#newuser
+                                button.btn.btn-success#newlocation
                                     span.glyphicon.glyphicon-plus 
-                                    | Add new user
+                                    | Add new location
                         table.table.table-striped
                             thead
                                 tr
-                                    th(ng-click="orderBy('name')") firstName
-                                    th(ng-click="orderBy('country')") lastName
-                                    th(ng-click="orderBy('email')") email
-                                    th(ng-click="orderBy('email')") phone
-                                    th(ng-click="orderBy('email')") role
+                                    th(ng-click="orderBy('name')") name
+                                    th(ng-click="orderBy('country')") building
+                                    th(ng-click="orderBy('email')") floor
                                     th(ng-click="orderBy('email')") createdAt
                                     th(ng-click="orderBy('email')") updatedAt
                                     th
                                     th
-                            tbody.text-center#usebody
-                        section.dn#createuser
+                            tbody.text-center#locationbody
+                        section.dn#createlocation
                             .container
                                 .row.justify-content-center
                                 .col-12.col-md-8.col-lg-8.col-xl-6
                                     .row
                                     .col.text-center.title
-                                        h1 Create New User
+                                        h1 Create New Location
                                     .row.align-items-center
                                         .col.mt-4
-                                            input.form-control(type='text', id='firstName' placeholder='firstName')
+                                            input.form-control(type='text', id='name' placeholder='name')
                                     .row.align-items-center.mt-4
                                         .col
-                                            input.form-control(type='text', id='lastName' placeholder='lastName')
+                                            input.form-control(type='number', id='building' placeholder='building')
                                     .row.align-items-center.mt-4
                                         .col
-                                            input.form-control(type='email', id='email' placeholder='email')
-                                    .row.align-items-center.mt-4
-                                        .col
-                                            input.form-control(type='phone', id='phone' placeholder='phone')
-                                    .row.align-items-center.mt-4
-                                        .col
-                                            input.form-control(type='password', id='password' placeholder='password')
-                                        .col
-                                            input.form-control(type='text', id='role' placeholder='role')
+                                            input.form-control(type='number', id='floor' placeholder='floor')
                                     .row.justify-content-start.mt-4
                                         .col
-                                            button.btn.btn-primary.mt-4#createuserbtn Create
-                        section.dn#updateuser
+                                            button.btn.btn-primary.mt-4#createlocationbtn Create
+                        section.dn#updatelocation
                             .container
                                 .row.justify-content-center
                                 .col-12.col-md-8.col-lg-8.col-xl-6
                                     .row
                                     .col.text-center.title
-                                        h1 Update User
+                                        h1 Update Location
                                     .row.align-items-center
                                         .col.mt-4
-                                            input.form-control(type='text', id='updatefirstName' placeholder='firstName')
+                                            input.form-control(type='text', id='updatename' placeholder='name')
                                     .row.align-items-center.mt-4
                                         .col
-                                            input.form-control(type='text', id='updatelastName' placeholder='lastName')
+                                            input.form-control(type='text', id='updatebuilding' placeholder='building')
                                     .row.align-items-center.mt-4
                                         .col
-                                            input.form-control(type='email', id='updateemail' placeholder='email')
-                                    .row.align-items-center.mt-4
-                                        .col
-                                            input.form-control(type='phone', id='updatephone' placeholder='phone')
-                                    .row.align-items-center.mt-4
-                                        .col
-                                            input.form-control(type='text', id='updaterole' placeholder='role')
+                                            input.form-control(type='email', id='updatefloor' placeholder='floor')
                                     .row.justify-content-start.mt-4
                                         .col
-                                            button.btn.btn-primary.mt-4#updateuserbtn Update
+                                            button.btn.btn-primary.mt-4#updatelocationbtn Update
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==', crossorigin='anonymous', referrerpolicy='no-referrer')
         script(src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js")
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
         script(src='/js/main.js')
-        script(src='/js/basic/basic.js')
+        script(src='/js/location/location.js')

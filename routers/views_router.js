@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { cookieJwtAuth } = require('./../middleware/cookieJwtAuth')
 
 const { User } = require('./../models/user')
@@ -27,15 +27,33 @@ router.post('/', async (req,res) => {
         // maxAge: 1000000,
         // signed: true
     })
-    return res.render('basic', {
-
-    });
+    if(user.role == 1)
+        return res.render('basic');
+    if(user.role == 2)
+        return res.render('basic1');
+    if(user.role == 3)
+        return res.render('basic2');
+    return res.render('login');
 })
 
-router.get('/user', async (req,res) => {
-    return res.render('basic', {
+router.get('/user', cookieJwtAuth, async (req,res) => {
+    if(req.user.role == 1)
+        return res.render('basic');
+    if(req.user.role == 2)
+        return res.render('basic1');
+    if(req.user.role == 3)
+        return res.render('basic2');
+    return res.render('login');
+})
 
-    });
+router.get('/location', cookieJwtAuth, async (req,res) => {
+    if(req.user.role == 1)
+        return res.render('location');
+    if(req.user.role == 2)
+        return res.render('location1');
+    if(req.user.role == 3)
+        return res.render('location2');
+    return res.render('login');
 })
 
 
