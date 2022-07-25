@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css' integrity='sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==' crossorigin='anonymous' referrerpolicy='no-referrer')
+        link(rel='stylesheet' href='/css/login.css')
+        script(src='https://unpkg.com/axios/dist/axios.min.js')
+        title LOGIN
+    body 
+        .page-login
+            .ui.centered.grid.container
+                .nine.wide.column.dn#errorlogin
+                    .ui.icon.warning.message
+                        i.lock.icon
+                        .content
+                        .header
+                            | Login failed!
+                        p You might have misspelled your username or password!
+                .ui.fluid.card
+                    .content
+                        form.ui.form(method='POST' action="/" id="loginsubmit")
+                            .field
+                                label Email
+                                input(type='text', name='email', id="email" placeholder='Email')
+                            .field
+                                label Password
+                                input(type='password', name='password', id="pass" placeholder='Password')
+                            button.ui.primary.labeled.icon.button(type='submit')
+                                i.unlock.alternate.icon
+                                span Login

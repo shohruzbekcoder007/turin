@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css' integrity='sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==' crossorigin='anonymous' referrerpolicy='no-referrer')
+        link(rel='stylesheet' href='/css/login.css')
+        script(src='https://unpkg.com/axios/dist/axios.min.js')
+        title Welcome
+    body 
+        .ui.top.attached.demo.menu
+            a.item
+                i.sidebar.icon
+                |  Menu
+        .ui.bottom.attached.segment
+            .ui.inverted.labeled.icon.left.inline.vertical.demo.sidebar.menu
+                a.item(href="/user?token={0}")
+                    |  Users
+                a.item(href="/chiller")
+                    |  Chiller
+                a.item(href="/counter")
+                    |  Counter
+                a.item(href="/devise")
+                    |  Devise
+                a.item(href="/location")
+                    |  Location
+                a.item(href="/report")
+                    |  Report
+            .pusher
+                .ui.basic.segment
+                    h3.ui.header Application Content
+                    p
+                    p
+                    p
+                    p
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==', crossorigin='anonymous', referrerpolicy='no-referrer')
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js")
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
+        script(src='/js/main.js')
+        script(src='/js/basic.js')
