@@ -1,0 +1,112 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="shortcut icon" href="#")
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css' integrity='sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==' crossorigin='anonymous' referrerpolicy='no-referrer')
+        link(rel='stylesheet' href='/css/basic.css')
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+        script(src='https://unpkg.com/axios/dist/axios.min.js')
+        title Location
+    body 
+        include includes/header.pug
+        .ui.bottom.attached.segment
+            include includes/sidebar.pug
+            .pusher
+                .ui.basic.segment
+                    .crud-table(ng-app='myApp', ng-controller='namesCtrl')
+                        .clearfix
+                            .form-inline.pull-left
+                                button.btn.btn-success#newchiller
+                                    span.glyphicon.glyphicon-plus 
+                                    | Add new chiller
+                        table.table.table-striped
+                            thead
+                                tr 
+                                    th enteringWaterTemp
+                                    th leavingWaterTemp
+                                    th enteringGasTemp
+                                    th leavingGasTemp
+                                    th firstCircuitPressure
+                                    th controlPoint
+                                    th demandLimit
+                                    th chillerState
+                                    th createdAt
+                                    th updatedAt
+                                    th
+                            tbody.text-center#chillerbody
+                        section.dn#createchiller
+                            .container
+                                .row.justify-content-center
+                                .col-12.col-md-8.col-lg-8.col-xl-6
+                                    .row
+                                    .col.text-center.title
+                                        h1 Create New Chiller
+                                    .row.align-items-center
+                                        .col.mt-4
+                                            input.form-control(type='number', id='enteringWaterTemp' placeholder='enteringWaterTemp')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='leavingWaterTemp' placeholder='leavingWaterTemp')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='enteringGasTemp' placeholder='enteringGasTemp')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='leavingGasTemp' placeholder='leavingGasTemp')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='firstCircuitPressure' placeholder='firstCircuitPressure')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='controlPoint' placeholder='controlPoint')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='demandLimit' placeholder='demandLimit')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='chillerState' placeholder='chillerState')
+                                    .row.justify-content-start.mt-4
+                                        .col
+                                            button.btn.btn-primary.mt-4#createchillerbtn Create
+                        section.dn#updatechiller
+                            .container
+                                .row.justify-content-center
+                                .col-12.col-md-8.col-lg-8.col-xl-6
+                                    .row
+                                    .col.text-center.title
+                                        h1 Update Chiller
+                                    .row.align-items-center
+                                        .col.mt-4
+                                            input.form-control(type='number', id='updateenteringWaterTemp' placeholder='enteringWaterTemp')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='updateleavingWaterTemp' placeholder='leavingWaterTemp')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='updateenteringGasTemp' placeholder='enteringGasTemp')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='updateleavingGasTemp' placeholder='leavingGasTemp')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='updatefirstCircuitPressure' placeholder='firstCircuitPressure')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='updatecontrolPoint' placeholder='controlPoint')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='updatedemandLimit' placeholder='demandLimit')
+                                    .row.align-items-center.mt-4
+                                        .col
+                                            input.form-control(type='number', id='updatechillerState' placeholder='chillerState')
+                                    .row.justify-content-start.mt-4
+                                        .col
+                                            button.btn.btn-primary.mt-4#updatechillerbtn Update
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==', crossorigin='anonymous', referrerpolicy='no-referrer')
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js")
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
+        script(src='/js/main.js')
+        script(src='/js/chiller/chiller1.js')

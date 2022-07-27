@@ -35,11 +35,11 @@ const ChillerSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        required: true
+        default: new Date()
     },
     updatedAt: {
         type: Date,
-        required: true
+        default: new Date()
     }
 });
 

@@ -56,5 +56,25 @@ router.get('/location', cookieJwtAuth, async (req,res) => {
     return res.render('login');
 })
 
+router.get('/chiller', cookieJwtAuth, async (req,res) => {
+    if(req.user.role == 1)
+        return res.render('chiller');
+    if(req.user.role == 2)
+        return res.render('chiller1');
+    if(req.user.role == 3)
+        return res.render('chiller2');
+    return res.render('login');
+})
+
+router.get('/counter', cookieJwtAuth, async (req,res) => {
+    if(req.user.role == 1)
+        return res.render('counter');
+    if(req.user.role == 2)
+        return res.render('counter1');
+    if(req.user.role == 3)
+        return res.render('counter2');
+    return res.render('login');
+})
+
 
 module.exports = router;
